@@ -122,9 +122,9 @@ module top(
     output DEBUG_9,
 
     // Programming Pins
-    output ICE_CLK,
-    output ICE_CDONE,
-    output ICE_CREST
+    output ICE_CLK
+    //output ICE_CDONE, // can't bind to pin 65 removing https://github.com/YosysHQ/icestorm/issues/269
+    //output ICE_CREST, // can't bind to pin 66 removing https://github.com/YosysHQ/icestorm/issues/269
     //output ICE_MISO,
     //output ICE_MOSI,
     //output ICE_SCK ,
@@ -1109,8 +1109,8 @@ assign FT_SIWU  = 1;
 //////////////////////////
 // Tristate the programming pins - probably not needed but just to be sure (belt and braces)
 assign ICE_CLK   = 1'bz;
-assign ICE_CDONE = 1'bz;
-assign ICE_CREST = 1'bz;
+//assign ICE_CDONE = 1'bz; // can't bind to pin 65 removing https://github.com/YosysHQ/icestorm/issues/269
+//assign ICE_CREST = 1'bz; // can't bind to pin 66 removing https://github.com/YosysHQ/icestorm/issues/269
 assign ICE_MISO  = 1'bz;
 assign ICE_MOSI  = 1'bz;
 assign ICE_SCK   = 1'bz;

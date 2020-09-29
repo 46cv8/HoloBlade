@@ -1,0 +1,13 @@
+read_verilog src/top.v
+read_verilog src/clock.v
+read_verilog src/uart_rx.v
+read_verilog src/uart_tx.v
+read_verilog src/spi.v
+read_verilog src/FIFO_Quad_Word_mod.v
+read_verilog src/bluejay_data.v
+read_verilog src/usb3_if.v
+read_verilog src/fifo_dc_32_lut_gen.v
+read_verilog src/timing_controller.v
+read_verilog src/fifo_sc_32_lut_gen.v
+synth_ice40 -top top
+write_json top.json
