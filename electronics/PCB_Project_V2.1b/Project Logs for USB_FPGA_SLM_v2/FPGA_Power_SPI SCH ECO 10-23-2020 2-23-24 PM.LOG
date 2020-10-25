@@ -1,0 +1,2 @@
+Add Pin To Net: Pin=P4-1 Old Net=NetP4_1 New Net=FT_GPIO0
+Add Pin To Net: Pin=P4-2 Old Net=NetP4_2 New Net=FT_GPIO1

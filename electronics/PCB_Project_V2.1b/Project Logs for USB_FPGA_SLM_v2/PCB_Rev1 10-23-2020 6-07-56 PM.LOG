@@ -1,0 +1,34 @@
+Removed Pin From Net: NetName=GPIO0 Pin=U8-17
+Removed Pin From Net: NetName=GPIO1 Pin=U8-18
+Added Component: Designator=R50(RESC1005X40N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case Code"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Component Name"; Value = "Res"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created By."; Value = "Daoming Dong"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL."; Value = "https://www.mouser.co.uk/datasheet/2/315/AOA0000C304-1149620.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Date Created"; Value = "12-Mar-2019"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacture"; Value = "Panasonic"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufcature No."; Value = "ERJ2RKD33R0X"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser No."; Value = "667-ERJ-2RKD33R0X"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "33"; VariantName = "[No Variations]"
+Added Component: Designator=R51(RESC1005X40N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case Code"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Component Name"; Value = "Res"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created By."; Value = "Daoming Dong"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL."; Value = "https://www.mouser.co.uk/datasheet/2/315/AOA0000C304-1149620.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Date Created"; Value = "12-Mar-2019"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacture"; Value = "Panasonic"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufcature No."; Value = "ERJ2RKD33R0X"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser No."; Value = "667-ERJ-2RKD33R0X"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "33"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GPIO0 Pin=R50-1
+Added Pin To Net: NetName=GPIO1 Pin=R51-1
+Added Pin To Net: NetName=NetR50_2 Pin=R50-2
+Added Pin To Net: NetName=NetR50_2 Pin=U8-17
+Added Net: Name=NetR50_2
+Added Pin To Net: NetName=NetR51_2 Pin=R51-2
+Added Pin To Net: NetName=NetR51_2 Pin=U8-18
+Added Net: Name=NetR51_2
+Added Member To Class: ClassName=FT601 Member=Component R50 ERJ2RKD33R0X
+Added Member To Class: ClassName=FT601 Member=Component R51 ERJ2RKD33R0X

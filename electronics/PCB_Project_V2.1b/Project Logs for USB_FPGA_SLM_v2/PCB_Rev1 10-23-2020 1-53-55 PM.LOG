@@ -1,0 +1,12 @@
+Added Member To Class: ClassName=FT601 Member=Component J2 692622030100
+Added Member To Class: ClassName=USB_SPI Member=Component LED7 TLMS1000-GS08
+Added Member To Class: ClassName=FPGA_Power_SPI Member=Component P7 Header 4
+Added Member To Class: ClassName=USB_SPI Member=Component R6 CRCW06032K20JNEAC
+Added Member To Class: ClassName=FPGA_SLM Member=Component R40 CRCW06030000Z0EAC
+Added Member To Class: ClassName=USB_SPI Member=Component R48 RT0603FRE13680RL
+Added Member To Class: ClassName=FPGA_Power_SPI Member=Component TP8 Testpoint
+Added Member To Class: ClassName=FPGA_Power_SPI Member=Component TP9 Testpoint
+Added Room: Name=FPGA_Power_SPI
+Added Room: Name=FPGA_SLM
+Added Room: Name=FT601
+Added Room: Name=USB_SPI

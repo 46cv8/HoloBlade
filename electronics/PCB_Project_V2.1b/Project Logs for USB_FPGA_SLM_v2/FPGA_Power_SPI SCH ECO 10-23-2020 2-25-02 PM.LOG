@@ -1,0 +1,4 @@
+Remove Pin=P4-1 From Net=GND
+Remove Pin=P4-2 From Net=GND
+Add Pin To Net: Pin=P4-1 Old Net=GND New Net=FT_GPIO0
+Add Pin To Net: Pin=P4-2 Old Net=GND New Net=FT_GPIO1

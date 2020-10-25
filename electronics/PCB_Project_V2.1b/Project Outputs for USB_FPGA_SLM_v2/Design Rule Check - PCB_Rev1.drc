@@ -1,0 +1,258 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc
+Date     : 10/25/2020
+Time     : 3:03:10 PM
+
+Processing Rule : Clearance Constraint (Gap=0.102mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.254mm) (InNamedPolygon('Top Layer-GND') Or  InNamedPolygon('Top Layer-GND 4') Or  InNamedPolygon('Top Layer-GND 3') Or  InNamedPolygon('Top Layer-GND 2')),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.014mm) (Max=1.37mm) (Preferred=0.254mm) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.2mm) (Max=2.54mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.1mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=5mm) (InNet('DATA14'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=5mm) (InNet('DATA13'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=5mm) (InNet('DATA15'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=5mm) (InNet('DATA31'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=5mm) (InNet('DATA9'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=5mm) (InNet('DATA16'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=24.5mm) (InNetClass('FT601FIFO'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=5mm) (InNet('DATA10'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=5mm) (InNet('DATA12'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=5mm) (InNet('DATA11'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=0.127mm) (InDifferentialPairClass('Diff90'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=1mm) (All)
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=1mm) (InDifferentialPair ('USB_D'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=5mm) (InNet('DATA25'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=5mm) (InNet('DATA17'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=5mm) (InNet('DATA26'))
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=5mm) (InNet('SDAT'))
+Rule Violations :0
+
+Processing Rule : Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601'))
+   Violation between Room Definition: Between LCC Component U8-FT601Q-B-T (16.789mm,26.111mm) on Top Layer And Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And Small Component DB7-Header 3 (10.599mm,57.998mm) on Top Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And Small Component DB8-Header 3 (10.625mm,61.019mm) on Top Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And Small Component GP0-Header 3 (10.583mm,51.949mm) on Top Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And Small Component GP1-Header 3 (10.609mm,54.996mm) on Top Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And Small Component RST-Header 3 (10.677mm,48.823mm) on Top Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And Small Component SIWU-Header 3 (10.755mm,42.625mm) on Top Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And Small Component WR-Header 3 (10.729mm,45.751mm) on Top Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C43-C1005X5R0J475K050BC (11.539mm,30.733mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C44-CC0402KPX5R6BB104 (12.588mm,30.731mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C47-C0402C682K5RECAUTO (14.176mm,28.197mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C48-CC0402KPX5R6BB104 (15.245mm,28.205mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C50-CC0402KPX5R6BB104 (18.81mm,28.716mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C51-CC0402KPX5R6BB104 (16.369mm,28.22mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C54-CC0402KPX5R6BB104 (18.971mm,27.046mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C55-CC0402KPX5R6BB104 (13.563mm,25.918mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C56-CC0402KPX5R6BB104 (19.3mm,25.153mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C57-C0402C682K5RECAUTO (20.355mm,25.149mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C58-C1005X5R0J475K050BC (17.748mm,25.634mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C59-AC0603KRX7R9BB104 (14.021mm,47.379mm) on Top Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component L3-BLM18PG300SZ1D (12.787mm,32.665mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component R20-SR0603KR-07100KL (14.015mm,48.946mm) on Top Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component R49-SR0603KR-07100KL (12.935mm,52.658mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component R4-ERJ2RKD33R0X (21.497mm,34.702mm) on Top Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component R52-SR0603KR-07100KL (13.08mm,43.321mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SOIC Component RN3-EXB-2HV330JV (14.183mm,35.316mm) on Top Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SOIC Component RN4-EXB-2HV330JV (18.556mm,35.316mm) on Top Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SOIC Component RN5-EXB-2HV330JV (9.805mm,35.316mm) on Top Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SOIC Component RN7-EXB-2HV330JV (26.618mm,28.683mm) on Top Layer 
+   Violation between Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SOIC Component RN8-EXB-2HV330JV (26.618mm,24.234mm) on Top Layer 
+Rule Violations :30
+
+Processing Rule : Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI'))
+   Violation between Room Definition: Between Component J1-629105136821 (68.888mm,3.682mm) on Top Layer And Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) 
+   Violation between Room Definition: Between Component X3-ECS-3225S33-120-FN-TR (62.395mm,15.748mm) on Top Layer And Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) 
+   Violation between Room Definition: Between LCC Component U6-FT2232HL-Reel (69.066mm,26.396mm) on Top Layer And Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C15-AC0603KRX7R9BB104 (55.27mm,34.014mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C16-CC0402KPX5R6BB104 (61.036mm,31.282mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C17-C1005X5R0J475K050BC (59.908mm,31.267mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C19-CC0402KPX5R6BB104 (70.92mm,18.285mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C22-AC0603KRX7R9BB104 (63.748mm,13.67mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C25-AC0603KRX7R9BB104 (71.811mm,8.606mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C45-CC0402KPX5R6BB104 (66.133mm,29.328mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C46-CC0402KPX5R6BB104 (69.21mm,29.227mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C49-CC0402KPX5R6BB104 (71.284mm,29.465mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C52-CC0402KPX5R6BB104 (71.742mm,27.928mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C53-CC0402KPX5R6BB104 (66.566mm,26.65mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C60-C1005X5R0J475K050BC (67.068mm,24.413mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C61-C1005X5R0J475K050BC (69.693mm,24.409mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C63-CC0402KPX5R6BB104 (72.6mm,23.764mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C67-CC0402KPX5R6BB104 (69.702mm,23.348mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C68-CC0402KPX5R6BB104 (67.07mm,23.35mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C72-CC0402KPX5R6BB104 (63.315mm,21.092mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C75-CC0402KPX5R6BB104 (61.116mm,44.221mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C76-CC0402KPX5R6BB104 (59.265mm,44.305mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component L1-742863160 (70.75mm,20.837mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component L2-742863160 (67.845mm,20.832mm) on Bottom Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component LED7-TLMS1000-GS08 (58.069mm,8.787mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R11-CRCW06032K20JNEAC (73.512mm,18.093mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R12-AC0603FR-1012KL (67.262mm,17.266mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R13-CRCW06030000Z0EAC (57.853mm,18.787mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R16-CRCW06030000Z0EAC (71.811mm,10.207mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R24-CRCW06030000Z0EAC (57.74mm,39.801mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R48-RT0603FRE13680RL (62.053mm,8.787mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R5-RT0603WRE0710KL (57.87mm,29.004mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R6-CRCW06032K20JNEAC (57.858mm,25.769mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R7-RT0603WRE0710KL (59.886mm,23.101mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R8-RT0603WRE0710KL (57.871mm,22.049mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SOIC Component RN1-EXB-2HVR000V (68.48mm,36.486mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SOIC Component RN2-EXB-2HVR000V (77.82mm,36.468mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SOIC Component U10-TXS0108EPWR (60.187mm,44.354mm) on Top Layer 
+   Violation between Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SOIC Component U7-93LC56BT-E/MS (54.937mm,29.184mm) on Top Layer 
+Rule Violations :39
+
+Processing Rule : Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI'))
+   Violation between Room Definition: Between Component P2-Header 4 (46.661mm,27.842mm) on Top Layer And Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) 
+   Violation between Room Definition: Between Component P7-Header 4 (78.621mm,45.427mm) on Top Layer And Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) 
+   Violation between Room Definition: Between Component U2-MIC5205YM5-TR (11.918mm,86.32mm) on Top Layer And Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) 
+   Violation between Room Definition: Between Component U4-LM1117MP-2.5/NOPB (10.441mm,74.908mm) on Top Layer And Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) 
+   Violation between Room Definition: Between DIP Component P6-GND-Header 3X2 (19.323mm,58.041mm) on Top Layer And Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And Small Component P1-Header 2 (7.646mm,92.087mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And Small Component P3-Header 2 (52.618mm,21.202mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C10-AC0603KRX7R9BB104 (8.917mm,80.458mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C11-C0603C475K9PAC7411 (78.578mm,75.784mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C12-AC0603KRX7R9BB104 (12.635mm,69.625mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C13-C1608X5R0J106K080AE (12.646mm,67.72mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C1-C0603C475K9PAC7411 (78.738mm,93.98mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C27-AC0603KRX7R9BB104 (44.506mm,58.426mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C28-AC0603KRX7R9BB104 (41.86mm,59.229mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C29-AC0603KRX7R9BB104 (38.741mm,59.222mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C2-C1608X5R0J106K080AE (12.586mm,90.736mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C30-AC0603KRX7R9BB104 (49.765mm,58.499mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C31-AC0603KRX7R9BB104 (48.133mm,58.483mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C32-AC0603KRX7R9BB104 (34.293mm,57.43mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C33-AC0603KRX7R9BB104 (48.891mm,55.863mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C34-AC0603KRX7R9BB104 (48.777mm,52.047mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C35-AC0603KRX7R9BB104 (49.606mm,49.603mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C36-AC0603KRX7R9BB104 (34.505mm,46.991mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C37-AC0603KRX7R9BB104 (34.475mm,45.38mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C38-AC0603KRX7R9BB104 (37.649mm,43.974mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C39-AC0603KRX7R9BB104 (49.77mm,43.911mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C3-AC0603KRX7R9BB104 (12.623mm,89.085mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C40-AC0603KRX7R9BB104 (43.772mm,43.283mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C41-AC0603KRX7R9BB104 (40.658mm,43.283mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C42-AC0603KRX7R9BB104 (35.274mm,43.3mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C4-C0603C475K9PAC7411 (79.321mm,87.92mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C5-AC0603KRX7R9BB104 (8.868mm,86.61mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C6-C1608X5R0J106K080AE (7.218mm,86.549mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C7-C0402S471K3RACAUTO (16.536mm,86.242mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C8-C1608X5R0J106K080AE (8.917mm,82.236mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C9-C0603C475K9PAC7411 (78.904mm,81.827mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component D3-CDBU0520 (52.424mm,58.499mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component LED2-TLMS1000-GS08 (77.871mm,61.023mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component LED3-TLMS1000-GS08 (77.817mm,58.7mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component LED4-TLMS1000-GS08 (77.817mm,56.607mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component LED5-TLMS1000-GS08 (46.722mm,36mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R15-RT0603WRE0710KL (50.181mm,17.708mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R18-RT0603WRE0710KL (50.108mm,14.65mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R1-RT0603FRE13680RL (14.936mm,87.833mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R21-RT0603FRE13680RL (74.269mm,61.05mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R22-RT0603FRE13680RL (74.215mm,58.7mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R23-RT0603FRE13680RL (74.215mm,56.622mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R26-RT0603FRE13680RL (43.679mm,44.959mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R27-RT0603WRE0710KL (46.753mm,44.957mm) on Bottom Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R2-CRCW06032K20JNEAC (14.952mm,84.773mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R32-CRCW06030000Z0EAC (75.622mm,87.912mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R33-CRCW06030000Z0EAC (75.623mm,81.88mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R34-CRCW06030000Z0EAC (6.193mm,82.965mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R35-CRCW06030000Z0EAC (6.491mm,89.02mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component TP1-testpoint (75.834mm,92.149mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component TP2-testpoint (20.125mm,86.998mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component TP3-testpoint (75.415mm,75.823mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component TP4-testpoint (11.768mm,66.131mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component TP8-Testpoint (43.06mm,35.179mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component TP9-Testpoint (44.876mm,35.165mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component U1-MCP1700T-1202E/TT (79.006mm,90.953mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component U3-MCP1700T-3302E/TT (78.572mm,78.868mm) on Top Layer 
+Rule Violations :62
+
+Processing Rule : Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM'))
+   Violation between Room Definition: Between Component J3-FH39A-67S-0.3SHW(10) (50.71mm,86.97mm) on Bottom Layer And Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) 
+   Violation between Room Definition: Between Component S1-SKU : COM-00097SMT- SWCH-08247 (76.436mm,67.042mm) on Top Layer And Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) 
+   Violation between Room Definition: Between Component X1-DSC6101JI2A-024.0000 (58.643mm,51.154mm) on Top Layer And Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) 
+   Violation between Room Definition: Between LCC Component U5-ICE40HX4K-TQ144 (41.853mm,51.201mm) on Top Layer And Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And Small Component P5-Header 2 (72.245mm,45.427mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component C14-AC0603KRX7R9BB104 (60.695mm,51.928mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component C74-AC0603KRX7R9BB104 (70.759mm,65.506mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R25-RT0603WRE0710KL (70.761mm,68.756mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R37-CRCW06030000Z0EAC (59.702mm,70.656mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R38-CRCW06030000Z0EAC (58.349mm,66.116mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R40-CRCW06030000Z0EAC (57.522mm,70.594mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R41-CRCW06030000Z0EAC (59.892mm,66.116mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R42-CRCW06030000Z0EAC (56.808mm,66.116mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R43-CRCW06030000Z0EAC (37.005mm,66.116mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R44-CRCW06030000Z0EAC (35.412mm,66.116mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R45-CRCW06030000Z0EAC (34.762mm,70.586mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R46-CRCW06030000Z0EAC (33.796mm,66.116mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R47-CRCW06030000Z0EAC (32.179mm,66.116mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SOIC Component RN10-EXB-2HV330JV (40.069mm,66.116mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SOIC Component RN11-EXB-2HV330JV (53.754mm,66.116mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SOIC Component RN6-EXB-2HV330JV (49.22mm,66.116mm) on Top Layer 
+   Violation between Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SOIC Component RN9-EXB-2HV330JV (44.681mm,66.116mm) on Top Layer 
+Rule Violations :22
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+
+Violations Detected : 153
+Waived Violations : 0
+Time Elapsed        : 00:00:01

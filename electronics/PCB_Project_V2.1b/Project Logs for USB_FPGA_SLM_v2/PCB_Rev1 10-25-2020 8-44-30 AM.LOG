@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=Nettp7_1 Pin=TP7-1
+Removed Pin From Net: NetName=FIFO_BE2 Pin=U5-15
+Change Net Name : Old Net Name=Nettp7_1 New Net Name=ICE_Debug8
+Added Pin To Net: NetName=ICE_Debug7 Pin=U5-15
+Added Net: Name=ICE_Debug7

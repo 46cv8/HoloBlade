@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=RD_N Pin=R28-1
+Removed Pin From Net: NetName=FT_RD Pin=R28-2
+Removed Pin From Net: NetName=FT_OE Pin=R29-2
+Removed Member From Class: ClassName=FT601 Member=R28
+Removed Member From Class: ClassName=FT601 Member=R29
+Added Pin To Net: NetName=RD_N Pin=RN5-4
+Added Pin To Net: NetName=FT_RD Pin=RN5-13
+Added Pin To Net: NetName=FT_OE Pin=RN5-14
+Added Pin To Net: NetName=NetRN5_3 Pin=RN5-3
+Added Pin To Net: NetName=NetRN5_3 Pin=U8-13
+Added Net: Name=NetRN5_3

@@ -1,0 +1,14 @@
+Added Component: Designator=R49(RESC1607X60N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case Code"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Component Name"; Value = "Res"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Created By"; Value = "Daoming Dong"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL."; Value = "https://www.mouser.co.uk/datasheet/2/447/PYu-SR_20105_RoHS_L_7-1488668.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Date Created"; Value = "02-Mar-2019"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacture"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacture No."; Value = "SR0603KR-07100KL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser No."; Value = "603-SR0603KR-07100KL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100K"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=R49-1
+Added Pin To Net: NetName=NetP4_1 Pin=R49-2
+Added Member To Class: ClassName=FT601 Member=Component R49 SR0603KR-07100KL

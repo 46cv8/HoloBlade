@@ -1,0 +1,11 @@
+Change Component DesignItemId : Designator=P4 Old DesignItemId=Header 2 New DesignItemId=Header 3
+Change Component Footprint: Designator=P4 Old Footprint=HDR1X2 New Footprint=HDR1X3
+Change Component Comment : Designator=P4 Old Comment=Header 2 New Comment=Header 3
+Change Component Description : Designator=P4 Old Description=Header, 2-Pin New Description=Header, 3-Pin
+Added Pin To Net: NetName=FTFO_BE0 Pin=P4-1
+Added Net: Name=FTFO_BE0
+Added Pin To Net: NetName=GPIO0 Pin=P4-2
+Added Pin To Net: NetName=GPIO0 Pin=U8-17
+Added Net: Name=GPIO0
+Added Pin To Net: NetName=NetP4_3 Pin=P4-3
+Added Net: Name=NetP4_3

@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=GND Pin=R53-1
+Removed Pin From Net: NetName=NetR53_2 Pin=R53-2
+Removed Member From Class: ClassName=FT601 Member=R53
+Added Pin To Net: NetName=NetR53_2 Pin=P4-1
+Added Pin To Net: NetName=NetR53_2 Pin=P8-1
+Added Pin To Net: NetName=NetR53_2 Pin=R49-2
+Change Net Name : Old Net Name=NetR53_2 New Net Name=GND_PULLDOWN

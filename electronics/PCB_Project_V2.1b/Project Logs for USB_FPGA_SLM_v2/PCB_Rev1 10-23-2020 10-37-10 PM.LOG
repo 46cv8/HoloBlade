@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=WR_N Pin=RN5-1
+Removed Pin From Net: NetName=SIWU_N Pin=RN5-2
+Removed Pin From Net: NetName=RXF_N Pin=RN5-3
+Removed Pin From Net: NetName=TXE_N Pin=RN5-4
+Removed Pin From Net: NetName=FT_TXE Pin=RN5-13
+Removed Pin From Net: NetName=FT_RXF Pin=RN5-14
+Removed Pin From Net: NetName=SIWU_N2 Pin=RN5-15
+Removed Pin From Net: NetName=WR_N2 Pin=RN5-16
+Added Pin To Net: NetName=WR_N Pin=RN5-5
+Added Pin To Net: NetName=SIWU_N Pin=RN5-6
+Added Pin To Net: NetName=RXF_N Pin=RN5-7
+Added Pin To Net: NetName=TXE_N Pin=RN5-8
+Added Pin To Net: NetName=FT_TXE Pin=RN5-9
+Added Pin To Net: NetName=FT_RXF Pin=RN5-10
+Added Pin To Net: NetName=SIWU_N2 Pin=RN5-11
+Added Pin To Net: NetName=WR_N2 Pin=RN5-12

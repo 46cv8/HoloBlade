@@ -1,0 +1,22 @@
+Removed Pin From Net: NetName=GPIO0 Pin=P4-2
+Removed Pin From Net: NetName=GPIO1 Pin=P8-2
+Removed Pin From Net: NetName=GPIO0 Pin=R50-1
+Removed Pin From Net: NetName=NetR50_2 Pin=R50-2
+Removed Pin From Net: NetName=GPIO1 Pin=R51-1
+Removed Pin From Net: NetName=NetR51_2 Pin=R51-2
+Removed Pin From Net: NetName=NetR50_2 Pin=U8-17
+Removed Pin From Net: NetName=NetR51_2 Pin=U8-18
+Removed Member From Class: ClassName=FT601 Member=R50
+Removed Member From Class: ClassName=FT601 Member=R51
+Added Pin To Net: NetName=NetR51_2 Pin=P4-2
+Added Pin To Net: NetName=NetR50_2 Pin=P8-2
+Added Pin To Net: NetName=GPIO1 Pin=RN5-1
+Added Pin To Net: NetName=GPIO0 Pin=RN5-2
+Added Pin To Net: NetName=NetR51_2 Pin=RN5-15
+Added Pin To Net: NetName=NetR50_2 Pin=RN5-16
+Added Pin To Net: NetName=GPIO0 Pin=U8-17
+Added Pin To Net: NetName=GPIO1 Pin=U8-18
+Change Net Name : Old Net Name=NetR50_2 New Net Name=GPIO1_2
+Change Net Name : Old Net Name=NetR51_2 New Net Name=GPIO0_2
+Change Net Name : Old Net Name=SIWU_N2 New Net Name=SIWU_N_2
+Change Net Name : Old Net Name=WR_N2 New Net Name=WR_N_2

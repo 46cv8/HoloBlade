@@ -1,0 +1,6 @@
+Change Component DesignItemId : Designator=P6-GND Old DesignItemId=Header 4 New DesignItemId=Header 3X2
+Change Component Footprint: Designator=P6-GND Old Footprint=HDR2X2 New Footprint=HDR2X3
+Change Component Comment : Designator=P6-GND Old Comment=Header 4 New Comment=Header 3X2
+Change Component Description : Designator=P6-GND Old Description=Header, 4-Pin New Description=Header, 3-Pin, Dual row
+Added Pin To Net: NetName=GND Pin=P6-GND-5
+Added Pin To Net: NetName=GND Pin=P6-GND-6

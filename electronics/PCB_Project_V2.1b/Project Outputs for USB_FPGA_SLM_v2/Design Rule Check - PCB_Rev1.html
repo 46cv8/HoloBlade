@@ -1,0 +1,875 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD18\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">10/25/2020</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">3:03:10 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc" class="file"><acronym title="C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc">C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">153</td></tr>
+</table>
+</td>
+</table><a name="ID3DFMMSIC22VRJCYJUNFJGH3YPNCOTIOUUKFSKLOWZQGAYZPBUVU"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYKRAL2M2DZC4CYOP5HP31JJ3RDLJCT4ABYN5SVC0OJ2YBSIYMWUB">Clearance Constraint (Gap=0.102mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID51R2T1DNAK54CAZV5URRKSM43FNI5K3XPWNEORCJ00RSICW3JI5F">Clearance Constraint (Gap=0.254mm) (InNamedPolygon('Top Layer-GND') Or  InNamedPolygon('Top Layer-GND 4') Or  InNamedPolygon('Top Layer-GND 3') Or  InNamedPolygon('Top Layer-GND 2')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDX2X5Z5NSOBXSOLYLYZZFTOBSCFO00O53VB3AK0BG4EYIWTDXD4UG">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1TFOZ5DPSXACJGUS1ORZAC4DNJRYM0GHA1T3H1FYB25WGUACA3DF">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMHIGTH1KJ43WGOJETTGA5CFZUOV0NRDC1QKWFJHNCGRPX4LDMSTM">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDS5ON12GP1QPJDXF3J0GVUXWSGMASHRGSVSAAKHBZ21Y4IN513WTN">Width Constraint (Min=0.014mm) (Max=1.37mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDXNHMFVJ3IZPACYVU5C3KXAJQTIJ3QVORIH2YYUJHZPOAJV1D0DHF">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXEWPTQPTM50VBLMG35C1LD2VGO3PX12XJQRJPIGHSZRUT2F0MXJD">Hole Size Constraint (Min=0.2mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5433DF3WNW4DDL2GI5JJICG2OJPD0S2LMSBYKEF1HEB5YUGELNPJ">Hole To Hole Clearance (Gap=0.1mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID01BQ1MRZ2R2UBJ0DQ43TK03ARDFX4WGZXCF4LKHCQ1ACH2KW45">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPUHPTS0YB4KTM4GPY5RMLAT2OBRM3GTREOVVE0LO04S3XKOW2DI">Matched Lengths(Tolerance=5mm) (InNet('DATA14'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFFNQVDLX2T0MEVIAFWQBTRBL5EUZFODCPBOXFUPZ1VX2XTBYCJRF">Matched Lengths(Tolerance=5mm) (InNet('DATA13'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDER2ZBGB3NCLRGLOFNGFOWG4N2EHTNUF00PI10ZE4DZ15YTGQ5H3G">Matched Lengths(Tolerance=5mm) (InNet('DATA15'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLAU4CRZTHPFG2EAFAGJJDKWLMIPUN3D2TSWKXC5NM14Y05ZF2SL">Matched Lengths(Tolerance=5mm) (InNet('DATA31'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNCSS50XLG41OKOSCRINTH0H4TCPG0FTQTFKA3TMATXCB34Q41XLE">Matched Lengths(Tolerance=5mm) (InNet('DATA9'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDEZL1ZJBGSKTGLESTHQQKU2DSYGBHPNCDS51SIOBEMAHSDZU3VZAG">Matched Lengths(Tolerance=5mm) (InNet('DATA16'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3UIMC0C2XWCFPOKFEGRZNPU5QJXBQFZ350S4GDBMFTZDN5HC5LFJ">Matched Lengths(Tolerance=24.5mm) (InNetClass('FT601FIFO'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLWRG5JRNIHRHEFHLYHXPHS5HFDJJYGZJVO33TGKKA4Y5QPF3MCO">Matched Lengths(Tolerance=5mm) (InNet('DATA10'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDX0AFMW2J4UQZD3URKGNBZ1VJQWPGMR0N3LSETOOBYSBEFK35AQG">Matched Lengths(Tolerance=5mm) (InNet('DATA12'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1PEQSWTV30JYJVL34O22LTHZKM3MRLTJWGJGGOBW3OGPQWQ5MHWN">Matched Lengths(Tolerance=5mm) (InNet('DATA11'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDHFXDLZ1CVBSLJCX1NZ2BONAEKGYYOIJON0OESBKECJHUXBLJPAN">Matched Lengths(Tolerance=0.127mm) (InDifferentialPairClass('Diff90'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDU0M0EQ4NAOILIP1HKNFQH5FADO3KQRBZGBMRNSDHWH2A5H3XY51">Matched Lengths(Tolerance=1mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDRPU3PMBBLZOSDA0TRCWPLJ53DFXDOCTEB0XR5XNYJIFHLYMMLCCO">Matched Lengths(Tolerance=1mm) (InDifferentialPair ('USB_D'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOYNBF2J4DHVIDLV3OMBNY0X5EDPWO2REPJQVLHMFUKNENER5CE1B">Matched Lengths(Tolerance=5mm) (InNet('DATA25'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUGDU1IS30YWFBREVQEDQ5FKOMMONXQKOPWQER5NRSWSKXG5ZIBKL">Matched Lengths(Tolerance=5mm) (InNet('DATA17'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDX2L2GX5USKIFEYRUKIU55STV4LDH2MFQICQDK0JL3UWL0FE5S2VE">Matched Lengths(Tolerance=5mm) (InNet('DATA26'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDS2WHHANHN5R2O4YATSFUKMKBGL4EOA0PZLLBEWJEAZKZZPLA4OHC">Matched Lengths(Tolerance=5mm) (InNet('SDAT'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIQRR5LRJQ00ZCXG2HGZA3Z4WHMTD02B0IHCVSP2WKAHYW0WXVAF">Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601'))</a></td>
+<td class="column2">30</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDECSMU2WMJKMULQ5SIXXYOZMFMGE4PSJPYS0BEPKMUNIKEGWIWWXL">Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI'))</a></td>
+<td class="column2">39</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDE3SY4YFZG3Q4E33UHYGHEBXMON0O0Q50ACQD0JFNU30PZT500HYO">Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI'))</a></td>
+<td class="column2">62</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLKX4URLVNZL4NMUKI1GTYFRYNEV1GVSJYW2THLJSQHQZ0QREGVAD">Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM'))</a></td>
+<td class="column2">22</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBXJ2NHEBJBVMIRJQORXMYPSYVKGRYK5DQNWFLIIYV5NIAAFK5ZJF">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">153</td>
+</tr>
+</table><br><a name="IDIQRR5LRJQ00ZCXG2HGZA3Z4WHMTD02B0IHCVSP2WKAHYW0WXVAF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1229.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1229.764mil|Absolute=True">Room Definition: Between LCC Component U8-FT601Q-B-T (16.789mm,26.111mm) on Top Layer And Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2337.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2337.323mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And Small Component DB7-Header 3 (10.599mm,57.998mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2456.26mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2456.26mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And Small Component DB8-Header 3 (10.625mm,61.019mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2099.173mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2099.173mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And Small Component GP0-Header 3 (10.583mm,51.949mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2219.134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2219.134mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And Small Component GP1-Header 3 (10.609mm,54.996mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1976.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1976.102mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And Small Component RST-Header 3 (10.677mm,48.823mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1732.087mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1732.087mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And Small Component SIWU-Header 3 (10.755mm,42.625mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1855.158mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1855.158mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And Small Component WR-Header 3 (10.729mm,45.751mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1248.347mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1248.347mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C43-C1005X5R0J475K050BC (11.539mm,30.733mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1248.268mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1248.268mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C44-CC0402KPX5R6BB104 (12.588mm,30.731mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1148.504mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1148.504mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C47-C0402C682K5RECAUTO (14.176mm,28.197mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1148.819mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1148.819mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C48-CC0402KPX5R6BB104 (15.245mm,28.205mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1151.22mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1151.22mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C50-CC0402KPX5R6BB104 (18.81mm,28.716mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1149.39mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1149.39mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C51-CC0402KPX5R6BB104 (16.369mm,28.22mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1085.472mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1085.472mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C54-CC0402KPX5R6BB104 (18.971mm,27.046mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1058.76mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1058.76mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C55-CC0402KPX5R6BB104 (13.563mm,25.918mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1028.661mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1028.661mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C56-CC0402KPX5R6BB104 (19.3mm,25.153mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1028.504mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1028.504mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C57-C0402C682K5RECAUTO (20.355mm,25.149mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1027.914mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1027.914mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C58-C1005X5R0J475K050BC (17.748mm,25.634mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1895.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1895.827mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component C59-AC0603KRX7R9BB104 (14.021mm,47.379mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1314.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1314.764mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component L3-BLM18PG300SZ1D (12.787mm,32.665mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1955.551mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1955.551mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component R20-SR0603KR-07100KL (14.015mm,48.946mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2133.504mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2133.504mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component R49-SR0603KR-07100KL (12.935mm,52.658mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1402.638mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1402.638mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component R4-ERJ2RKD33R0X (21.497mm,34.702mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1765.906mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1765.906mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SMT Small Component R52-SR0603KR-07100KL (13.08mm,43.321mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1432.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1432.307mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SOIC Component RN3-EXB-2HV330JV (14.183mm,35.316mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1432.287mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1432.287mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SOIC Component RN4-EXB-2HV330JV (18.556mm,35.316mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1432.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1432.307mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SOIC Component RN5-EXB-2HV330JV (9.805mm,35.316mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1211.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1211.323mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SOIC Component RN7-EXB-2HV330JV (26.618mm,28.683mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1036.165mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1036.165mil|Absolute=True">Room Definition: Between Room FT601 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FT601')) And SOIC Component RN8-EXB-2HV330JV (26.618mm,24.234mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDECSMU2WMJKMULQ5SIXXYOZMFMGE4PSJPYS0BEPKMUNIKEGWIWWXL"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2978.401mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2978.401mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Component J1-629105136821 (68.888mm,3.682mm) on Top Layer And Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2596.261mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2596.261mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Component X3-ECS-3225S33-120-FN-TR (62.395mm,15.748mm) on Top Layer And Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2983.898mil|Location1.Y=0mil|Location2.Y=1303.976mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2983.898mil|Location1.Y=0mil|Location2.Y=1303.976mil|Absolute=True">Room Definition: Between LCC Component U6-FT2232HL-Reel (69.066mm,26.396mm) on Top Layer And Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2236.004mil|Location1.Y=0mil|Location2.Y=1369.666mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2236.004mil|Location1.Y=0mil|Location2.Y=1369.666mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C15-AC0603KRX7R9BB104 (55.27mm,34.014mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2423.661mil|Location1.Y=0mil|Location2.Y=1269.96mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2423.661mil|Location1.Y=0mil|Location2.Y=1269.96mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C16-CC0402KPX5R6BB104 (61.036mm,31.282mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2377.283mil|Location1.Y=0mil|Location2.Y=1269.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2377.283mil|Location1.Y=0mil|Location2.Y=1269.37mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C17-C1005X5R0J475K050BC (59.908mm,31.267mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2830.512mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2830.512mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C19-CC0402KPX5R6BB104 (70.92mm,18.285mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2569.804mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2569.804mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C22-AC0603KRX7R9BB104 (63.748mm,13.67mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2887.244mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2887.244mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C25-AC0603KRX7R9BB104 (71.811mm,8.606mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2624.331mil|Location1.Y=0mil|Location2.Y=1193.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2624.331mil|Location1.Y=0mil|Location2.Y=1193.032mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C45-CC0402KPX5R6BB104 (66.133mm,29.328mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2745.472mil|Location1.Y=0mil|Location2.Y=1189.055mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2745.472mil|Location1.Y=0mil|Location2.Y=1189.055mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C46-CC0402KPX5R6BB104 (69.21mm,29.227mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2844.842mil|Location1.Y=0mil|Location2.Y=1180.709mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2844.842mil|Location1.Y=0mil|Location2.Y=1180.709mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C49-CC0402KPX5R6BB104 (71.284mm,29.465mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2845.157mil|Location1.Y=0mil|Location2.Y=1137.913mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2845.157mil|Location1.Y=0mil|Location2.Y=1137.913mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C52-CC0402KPX5R6BB104 (71.742mm,27.928mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2659.094mil|Location1.Y=0mil|Location2.Y=1069.882mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2659.094mil|Location1.Y=0mil|Location2.Y=1069.882mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C53-CC0402KPX5R6BB104 (66.566mm,26.65mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2678.858mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2678.858mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C60-C1005X5R0J475K050BC (67.068mm,24.413mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2782.204mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2782.204mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C61-C1005X5R0J475K050BC (69.693mm,24.409mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2878.937mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2878.937mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C63-CC0402KPX5R6BB104 (72.6mm,23.764mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2782.559mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2782.559mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C67-CC0402KPX5R6BB104 (69.702mm,23.348mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2678.937mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2678.937mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C68-CC0402KPX5R6BB104 (67.07mm,23.35mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2513.386mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2513.386mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C72-CC0402KPX5R6BB104 (63.315mm,21.092mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2426.811mil|Location1.Y=0mil|Location2.Y=1779.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2426.811mil|Location1.Y=0mil|Location2.Y=1779.37mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C75-CC0402KPX5R6BB104 (61.116mm,44.221mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2353.937mil|Location1.Y=0mil|Location2.Y=1782.677mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2353.937mil|Location1.Y=0mil|Location2.Y=1782.677mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component C76-CC0402KPX5R6BB104 (59.265mm,44.305mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2811.024mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2811.024mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component L1-742863160 (70.75mm,20.837mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2696.653mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2696.653mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component L2-742863160 (67.845mm,20.832mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2346.22mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2346.22mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component LED7-TLMS1000-GS08 (58.069mm,8.787mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2952.244mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2952.244mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R11-CRCW06032K20JNEAC (73.512mm,18.093mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2676.654mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2676.654mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R12-AC0603FR-1012KL (67.262mm,17.266mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2335.748mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2335.748mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R13-CRCW06030000Z0EAC (57.853mm,18.787mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2885.276mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2885.276mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R16-CRCW06030000Z0EAC (71.811mm,10.207mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2331.299mil|Location1.Y=0mil|Location2.Y=1595.512mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2331.299mil|Location1.Y=0mil|Location2.Y=1595.512mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R24-CRCW06030000Z0EAC (57.74mm,39.801mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2501.102mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2501.102mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R48-RT0603FRE13680RL (62.053mm,8.787mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2306.891mil|Location1.Y=0mil|Location2.Y=1199.96mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2306.891mil|Location1.Y=0mil|Location2.Y=1199.96mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R5-RT0603WRE0710KL (57.87mm,29.004mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2306.418mil|Location1.Y=0mil|Location2.Y=1072.588mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2306.418mil|Location1.Y=0mil|Location2.Y=1072.588mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R6-CRCW06032K20JNEAC (57.858mm,25.769mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2386.26mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2386.26mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R7-RT0603WRE0710KL (59.886mm,23.101mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2306.913mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2306.913mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SMT Small Component R8-RT0603WRE0710KL (57.871mm,22.049mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2783.409mil|Location1.Y=0mil|Location2.Y=1478.369mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2783.409mil|Location1.Y=0mil|Location2.Y=1478.369mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SOIC Component RN1-EXB-2HVR000V (68.48mm,36.486mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3151.126mil|Location1.Y=0mil|Location2.Y=1477.661mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3151.126mil|Location1.Y=0mil|Location2.Y=1477.661mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SOIC Component RN2-EXB-2HVR000V (77.82mm,36.468mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2525.079mil|Location1.Y=0mil|Location2.Y=1887.953mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2525.079mil|Location1.Y=0mil|Location2.Y=1887.953mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SOIC Component U10-TXS0108EPWR (60.187mm,44.354mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2232.756mil|Location1.Y=0mil|Location2.Y=1273.012mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2232.756mil|Location1.Y=0mil|Location2.Y=1273.012mil|Absolute=True">Room Definition: Between Room USB_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('USB_SPI')) And SOIC Component U7-93LC56BT-E/MS (54.937mm,29.184mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDE3SY4YFZG3Q4E33UHYGHEBXMON0O0Q50ACQD0JFNU30PZT500HYO"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2054.199mil|Location1.Y=0mil|Location2.Y=1150.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2054.199mil|Location1.Y=0mil|Location2.Y=1150.079mil|Absolute=True">Room Definition: Between Component P2-Header 4 (46.661mm,27.842mm) on Top Layer And Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3149.252mil|Location1.Y=0mil|Location2.Y=1948.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3149.252mil|Location1.Y=0mil|Location2.Y=1948.465mil|Absolute=True">Room Definition: Between Component P7-Header 4 (78.621mm,45.427mm) on Top Layer And Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3479.134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3479.134mil|Absolute=True">Room Definition: Between Component U2-MIC5205YM5-TR (11.918mm,86.32mm) on Top Layer And Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3117.441mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3117.441mil|Absolute=True">Room Definition: Between Component U4-LM1117MP-2.5/NOPB (10.441mm,74.908mm) on Top Layer And Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2393.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2393.079mil|Absolute=True">Room Definition: Between DIP Component P6-GND-Header 3X2 (19.323mm,58.041mm) on Top Layer And Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3779.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3779.409mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And Small Component P1-Header 2 (7.646mm,92.087mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2125.511mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2125.511mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And Small Component P3-Header 2 (52.618mm,21.202mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3198.151mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3198.151mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C10-AC0603KRX7R9BB104 (8.917mm,80.458mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3153.661mil|Location1.Y=0mil|Location2.Y=3014.135mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3153.661mil|Location1.Y=0mil|Location2.Y=3014.135mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C11-C0603C475K9PAC7411 (78.578mm,75.784mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2771.669mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2771.669mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C12-AC0603KRX7R9BB104 (12.635mm,69.625mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2696.669mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2696.669mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C13-C1608X5R0J106K080AE (12.646mm,67.72mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3159.96mil|Location1.Y=0mil|Location2.Y=3730.512mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3159.96mil|Location1.Y=0mil|Location2.Y=3730.512mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C1-C0603C475K9PAC7411 (78.738mm,93.98mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2360.276mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2360.276mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C27-AC0603KRX7R9BB104 (44.506mm,58.426mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2362.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2362.362mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C28-AC0603KRX7R9BB104 (41.86mm,59.229mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2362.086mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2362.086mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C29-AC0603KRX7R9BB104 (38.741mm,59.222mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3602.794mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3602.794mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C2-C1608X5R0J106K080AE (12.586mm,90.736mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2363.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2363.15mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C30-AC0603KRX7R9BB104 (49.765mm,58.499mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2362.52mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2362.52mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C31-AC0603KRX7R9BB104 (48.133mm,58.483mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2321.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2321.063mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C32-AC0603KRX7R9BB104 (34.293mm,57.43mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2229.842mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2229.842mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C33-AC0603KRX7R9BB104 (48.891mm,55.863mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2079.606mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2079.606mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C34-AC0603KRX7R9BB104 (48.777mm,52.047mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2012.914mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2012.914mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C35-AC0603KRX7R9BB104 (49.606mm,49.603mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1880.568mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1880.568mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C36-AC0603KRX7R9BB104 (34.505mm,46.991mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1817.144mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1817.144mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C37-AC0603KRX7R9BB104 (34.475mm,45.38mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1791.298mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1791.298mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C38-AC0603KRX7R9BB104 (37.649mm,43.974mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2019.488mil|Location1.Y=0mil|Location2.Y=1759.292mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2019.488mil|Location1.Y=0mil|Location2.Y=1759.292mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C39-AC0603KRX7R9BB104 (49.77mm,43.911mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3537.794mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3537.794mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C3-AC0603KRX7R9BB104 (12.623mm,89.085mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1734.566mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1734.566mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C40-AC0603KRX7R9BB104 (43.772mm,43.283mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1734.566mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1734.566mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C41-AC0603KRX7R9BB104 (40.658mm,43.283mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1735.236mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1735.236mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C42-AC0603KRX7R9BB104 (35.274mm,43.3mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3182.913mil|Location1.Y=0mil|Location2.Y=3491.93mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3182.913mil|Location1.Y=0mil|Location2.Y=3491.93mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C4-C0603C475K9PAC7411 (79.321mm,87.92mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3469.883mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3469.883mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C5-AC0603KRX7R9BB104 (8.868mm,86.61mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3469.448mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3469.448mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C6-C1608X5R0J106K080AE (7.218mm,86.549mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3455.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3455.394mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C7-C0402S471K3RACAUTO (16.536mm,86.242mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3268.151mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3268.151mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C8-C1608X5R0J106K080AE (8.917mm,82.236mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3166.496mil|Location1.Y=0mil|Location2.Y=3252.028mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3166.496mil|Location1.Y=0mil|Location2.Y=3252.028mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component C9-C0603C475K9PAC7411 (78.904mm,81.827mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2096.418mil|Location1.Y=0mil|Location2.Y=2365.596mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2096.418mil|Location1.Y=0mil|Location2.Y=2365.596mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component D3-CDBU0520 (52.424mm,58.499mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3126.304mil|Location1.Y=0mil|Location2.Y=2432.992mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3126.304mil|Location1.Y=0mil|Location2.Y=2432.992mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component LED2-TLMS1000-GS08 (77.871mm,61.023mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3124.178mil|Location1.Y=0mil|Location2.Y=2341.535mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3124.178mil|Location1.Y=0mil|Location2.Y=2341.535mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component LED3-TLMS1000-GS08 (77.817mm,58.7mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3124.178mil|Location1.Y=0mil|Location2.Y=2259.134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3124.178mil|Location1.Y=0mil|Location2.Y=2259.134mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component LED4-TLMS1000-GS08 (77.817mm,56.607mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1477.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1477.362mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component LED5-TLMS1000-GS08 (46.722mm,36mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2004.174mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2004.174mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R15-RT0603WRE0710KL (50.181mm,17.708mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2001.3mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2001.3mil|Location1.Y=0mil|Location2.Y=1000mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R18-RT0603WRE0710KL (50.108mm,14.65mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3516.062mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3516.062mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R1-RT0603FRE13680RL (14.936mm,87.833mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2982.047mil|Location1.Y=0mil|Location2.Y=2432.087mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2982.047mil|Location1.Y=0mil|Location2.Y=2432.087mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R21-RT0603FRE13680RL (74.269mm,61.05mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2979.921mil|Location1.Y=0mil|Location2.Y=2339.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2979.921mil|Location1.Y=0mil|Location2.Y=2339.567mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R22-RT0603FRE13680RL (74.215mm,58.7mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2979.921mil|Location1.Y=0mil|Location2.Y=2257.756mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2979.921mil|Location1.Y=0mil|Location2.Y=2257.756mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R23-RT0603FRE13680RL (74.215mm,56.622mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1798.583mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1798.583mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R26-RT0603FRE13680RL (43.679mm,44.959mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1798.504mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1798.504mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R27-RT0603WRE0710KL (46.753mm,44.957mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3395.59mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3395.59mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R2-CRCW06032K20JNEAC (14.952mm,84.773mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3035.315mil|Location1.Y=0mil|Location2.Y=3489.646mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3035.315mil|Location1.Y=0mil|Location2.Y=3489.646mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R32-CRCW06030000Z0EAC (75.622mm,87.912mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3035.354mil|Location1.Y=0mil|Location2.Y=3252.165mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3035.354mil|Location1.Y=0mil|Location2.Y=3252.165mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R33-CRCW06030000Z0EAC (75.623mm,81.88mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3324.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3324.409mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R34-CRCW06030000Z0EAC (6.193mm,82.965mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3533.268mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3533.268mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component R35-CRCW06030000Z0EAC (6.491mm,89.02mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3009.276mil|Location1.Y=0mil|Location2.Y=3651.598mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3009.276mil|Location1.Y=0mil|Location2.Y=3651.598mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component TP1-testpoint (75.834mm,92.149mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3448.803mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=3448.803mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component TP2-testpoint (20.125mm,86.998mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2992.78mil|Location1.Y=0mil|Location2.Y=3008.843mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2992.78mil|Location1.Y=0mil|Location2.Y=3008.843mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component TP3-testpoint (75.415mm,75.823mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2627.268mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2627.268mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component TP4-testpoint (11.768mm,66.131mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1408.134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1408.134mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component TP8-Testpoint (43.06mm,35.179mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1408.134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=1408.134mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component TP9-Testpoint (44.876mm,35.165mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3192.165mil|Location1.Y=0mil|Location2.Y=3656.614mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3192.165mil|Location1.Y=0mil|Location2.Y=3656.614mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component U1-MCP1700T-1202E/TT (79.006mm,90.953mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3165.236mil|Location1.Y=0mil|Location2.Y=3180.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3165.236mil|Location1.Y=0mil|Location2.Y=3180.827mil|Absolute=True">Room Definition: Between Room FPGA_Power_SPI (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_Power_SPI')) And SMT Small Component U3-MCP1700T-3302E/TT (78.572mm,78.868mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDLKX4URLVNZL4NMUKI1GTYFRYNEV1GVSJYW2THLJSQHQZ0QREGVAD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2439.369mil|Location1.Y=0mil|Location2.Y=3501.559mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2439.369mil|Location1.Y=0mil|Location2.Y=3501.559mil|Absolute=True">Room Definition: Between Component J3-FH39A-67S-0.3SHW(10) (50.71mm,86.97mm) on Bottom Layer And Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3187.291mil|Location1.Y=0mil|Location2.Y=2778.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=3187.291mil|Location1.Y=0mil|Location2.Y=2778.449mil|Absolute=True">Room Definition: Between Component S1-SKU : COM-00097SMT- SWCH-08247 (76.436mm,67.042mm) on Top Layer And Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2354.055mil|Location1.Y=0mil|Location2.Y=2106.082mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2354.055mil|Location1.Y=0mil|Location2.Y=2106.082mil|Absolute=True">Room Definition: Between Component X1-DSC6101JI2A-024.0000 (58.643mm,51.154mm) on Top Layer And Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2097.558mil|Location1.Y=0mil|Location2.Y=2465.59mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2097.558mil|Location1.Y=0mil|Location2.Y=2465.59mil|Absolute=True">Room Definition: Between LCC Component U5-ICE40HX4K-TQ144 (41.853mm,51.201mm) on Top Layer And Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2898.228mil|Location1.Y=0mil|Location2.Y=1942.402mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2898.228mil|Location1.Y=0mil|Location2.Y=1942.402mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And Small Component P5-Header 2 (72.245mm,45.427mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2420.078mil|Location1.Y=0mil|Location2.Y=2104.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2420.078mil|Location1.Y=0mil|Location2.Y=2104.468mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component C14-AC0603KRX7R9BB104 (60.695mm,51.928mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2816.299mil|Location1.Y=0mil|Location2.Y=2639.016mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2816.299mil|Location1.Y=0mil|Location2.Y=2639.016mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component C74-AC0603KRX7R9BB104 (70.759mm,65.506mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2814.41mil|Location1.Y=0mil|Location2.Y=2765mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2814.41mil|Location1.Y=0mil|Location2.Y=2765mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R25-RT0603WRE0710KL (70.761mm,68.756mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2379.016mil|Location1.Y=0mil|Location2.Y=2839.803mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2379.016mil|Location1.Y=0mil|Location2.Y=2839.803mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R37-CRCW06030000Z0EAC (59.702mm,70.656mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2325.748mil|Location1.Y=0mil|Location2.Y=2661.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2325.748mil|Location1.Y=0mil|Location2.Y=2661.063mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R38-CRCW06030000Z0EAC (58.349mm,66.116mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2293.189mil|Location1.Y=0mil|Location2.Y=2837.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2293.189mil|Location1.Y=0mil|Location2.Y=2837.362mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R40-CRCW06030000Z0EAC (57.522mm,70.594mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2386.496mil|Location1.Y=0mil|Location2.Y=2661.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2386.496mil|Location1.Y=0mil|Location2.Y=2661.063mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R41-CRCW06030000Z0EAC (59.892mm,66.116mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2265.079mil|Location1.Y=0mil|Location2.Y=2661.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2265.079mil|Location1.Y=0mil|Location2.Y=2661.063mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R42-CRCW06030000Z0EAC (56.808mm,66.116mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2661.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2661.063mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R43-CRCW06030000Z0EAC (37.005mm,66.116mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2661.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2661.063mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R44-CRCW06030000Z0EAC (35.412mm,66.116mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2837.047mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2837.047mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R45-CRCW06030000Z0EAC (34.762mm,70.586mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2661.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2661.063mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R46-CRCW06030000Z0EAC (33.796mm,66.116mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2661.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2661.063mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SMT Small Component R47-CRCW06030000Z0EAC (32.179mm,66.116mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2644.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2644.905mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SOIC Component RN10-EXB-2HV330JV (40.069mm,66.116mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2203.646mil|Location1.Y=0mil|Location2.Y=2644.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2203.646mil|Location1.Y=0mil|Location2.Y=2644.905mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SOIC Component RN11-EXB-2HV330JV (53.754mm,66.116mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2025.142mil|Location1.Y=0mil|Location2.Y=2644.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2025.142mil|Location1.Y=0mil|Location2.Y=2644.905mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SOIC Component RN6-EXB-2HV330JV (49.22mm,66.116mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2644.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Peter\Desktop\HoloBlade\PCB_Project_V2.1b\PCB_Rev1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=2000mil|Location1.Y=0mil|Location2.Y=2644.905mil|Absolute=True">Room Definition: Between Room FPGA_SLM (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (InComponentClass('FPGA_SLM')) And SOIC Component RN9-EXB-2HV330JV (44.681mm,66.116mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

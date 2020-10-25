@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=FIFO_BE0 Pin=RN5-9
+Removed Pin From Net: NetName=FIFO_BE1 Pin=RN5-10
+Removed Pin From Net: NetName=FIFO_BE2 Pin=RN5-11
+Removed Pin From Net: NetName=FIFO_BE3 Pin=RN5-12
+Removed Member From Class: ClassName=FT601FIFO Member=FIFO_BE0
+Removed Member From Class: ClassName=FT601FIFO Member=FIFO_BE1
+Removed Member From Class: ClassName=FT601FIFO Member=FIFO_BE2
+Removed Member From Class: ClassName=FT601FIFO Member=FIFO_BE3

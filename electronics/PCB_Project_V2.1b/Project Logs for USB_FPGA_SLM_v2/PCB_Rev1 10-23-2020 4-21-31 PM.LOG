@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=FIFO_BE3 Pin=U5-10
+Removed Pin From Net: NetName=FIFO_BE2 Pin=U5-11
+Removed Pin From Net: NetName=FT_GPIO0 Pin=U5-12
+Removed Pin From Net: NetName=FT_GPIO1 Pin=U5-15
+Added Pin To Net: NetName=FT_GPIO0 Pin=U5-10
+Added Pin To Net: NetName=FT_GPIO1 Pin=U5-11
+Added Pin To Net: NetName=FIFO_BE3 Pin=U5-12
+Added Pin To Net: NetName=FIFO_BE2 Pin=U5-15
