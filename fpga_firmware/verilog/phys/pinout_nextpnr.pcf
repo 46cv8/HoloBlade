@@ -87,16 +87,17 @@ set_io DATA10 96
 
 # FT601
 # Bank 3 Pins
+set_io DEBUG_N_8 # Created as DEBUG_N_8 was not defined prior but used to map to TP7 on board
 set_io FT_OE 2
 set_io FT_RD 3
-set_io FT_WR 4
-set_io FT_SIWU 7
+set_io FT_WR 4 # Can be used as debug point when configured with jumper
+set_io FT_SIWU 7 # Can be used as debug point when configured with jumper
 set_io FR_RXF 8
 set_io FT_TXE 9
-set_io FIFO_BE3 10
-set_io FIFO_BE2 11
-set_io FIFO_BE1 12
-set_io FIFO_BE0 15
+set_io FIFO_BE3 10 # Changing to FT_RESET was FIFO_BE3 AND can be used as debug point when configured with jumper
+set_io FIFO_BE2 11 # Changing to FT_GPIO0 was FIFO_BE2 AND can be used as debug point when configured with jumper
+set_io FIFO_BE1 12 # Changing to FT_GPIO1 was FIFO_BE1 AND can be used as debug point when configured with jumper
+set_io FIFO_BE0 15 # Changed to DEBUG_N_7 was FIFO_BE0 AND can be used as debug point when configured with jumper
 set_io FIFO_D31 16
 set_io FIFO_D30 17
 set_io FIFO_D29 18

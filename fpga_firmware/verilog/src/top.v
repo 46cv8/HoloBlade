@@ -66,16 +66,23 @@ module top(
 
     // FT601
     // Bank 1 Pins
+    // output DEBUG_N_8, // was not defined before but corresponded to TP7 on new header on V2.1b board (now debug output)
     output FT_OE,
     output FT_RD,
-    output FT_WR,
-    output FT_SIWU,
+    output FT_WR, // (can be used as a debug output when jumper is set on V2.1b board)
+    output FT_SIWU, // (can be used as a debug output when jumper is set on V2.1b board)
     input  FR_RXF,
     input  FT_TXE,
-    input  FIFO_BE3,
-    input  FIFO_BE2,
-    input  FIFO_BE1,
-    input  FIFO_BE0,
+    input  FIFO_BE3, // same pin as output FT_RESET on V2.1b board
+    // output FT_RESET, // same as input FIFO_BE3 on V1.1 board (can be used as a debug output when jumper is set on V2.1b board)
+    input  FIFO_BE2, // same pin as output FT_GPIO0 on V2.1b board
+    // input FT_GPIO0, // same as input FIFO_BE2 on V1.1 board
+    // output FT_GPIO0, // same as input FIFO_BE2 on V1.1 board (can be used as a debug output when jumper is set on V2.1b board)
+    input  FIFO_BE1, // same pin as output FT_GPIO1 on V2.1b board
+    // input FT_GPIO1, // same as input FIFO_BE1 on V1.1 board
+    // output FT_GPIO1, // same as input FIFO_BE1 on V1.1 board (can be used as a debug output when jumper is set on V2.1b board)
+    input  FIFO_BE0, // same pin as output DEBUG_N_7 on V2.1b board
+    // output DEBUG_N_7, // same as input FIFO_BE0 on V1.1 board (now debug output)
     input  FIFO_D31,
     input  FIFO_D30,
     input  FIFO_D29,
@@ -120,6 +127,7 @@ module top(
     output DEBUG_6,
     output DEBUG_8,
     output DEBUG_9,
+    //
 
     // Programming Pins
     output ICE_CLK
