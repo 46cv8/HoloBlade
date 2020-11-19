@@ -87,7 +87,7 @@ set_io DATA10 96
 
 # FT601
 # Bank 3 Pins
-set_io DEBUG_N_8 # Created as DEBUG_N_8 was not defined prior but used to map to TP7 on board
+set_io DEBUG_N_8 1 # Created as DEBUG_N_8 was not defined prior but used to map to TP7 on board
 set_io FT_OE 2
 set_io FT_RD 3
 set_io FT_WR 4 # Can be used as debug point when configured with jumper
