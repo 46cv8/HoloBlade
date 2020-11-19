@@ -20,7 +20,7 @@
 				<BScanVal>0</BScanVal>
 			</Bypass>
 			<File>D:/Dev/HoloBlade/fpga_firmware/verilog/bin/top_bitmap.hex</File>
-			<FileTime>08/28/20 11:28:08</FileTime>
+			<FileTime>10/20/20 10:21:37</FileTime>
 			<Operation>Fast Program</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>
