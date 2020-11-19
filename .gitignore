@@ -1,0 +1,8 @@
+*.pyc
+
+# lattice build files
+fpga_firmware/verilog/.vdbs
+fpga_firmware/verilog/HoloBlade_Implmnt
+
+# lattice timing report
+#*.twr
