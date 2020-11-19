@@ -66,7 +66,7 @@ module top(
 
     // FT601
     // Bank 1 Pins
-    // output DEBUG_N_8, // was not defined before but corresponded to TP7 on new header on V2.1b board (now debug output)
+    output DEBUG_N_8, // was not defined before but corresponded to TP7 on new header on V2.1b board (now debug output)
     output FT_OE,
     output FT_RD,
     output FT_WR, // (can be used as a debug output when jumper is set on V2.1b board)
