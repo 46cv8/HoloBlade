@@ -134,9 +134,9 @@ set_io FIFO_D1  61
 set_io FIFO_D0  62
 
 # Programming
-set_io ICE_CLK 52
-#set_io ICE_CDONE 65 # can't bind to pin 65 removing https://github.com/YosysHQ/icestorm/issues/269
-#set_io ICE_CREST 66 # can't bind to pin 66 removing https://github.com/YosysHQ/icestorm/issues/269
+#set_io ICE_CLK 52 # for linux build it doesn't seem to properly assign tri-state to this output resulting in a pulldown of the usb clock so I've just disabled it for now
+#set_io ICE_CDONE 65 # for linux build can't bind to pin 65 removing https://github.com/YosysHQ/icestorm/issues/269
+#set_io ICE_CREST 66 # for linux build can't bind to pin 66 removing https://github.com/YosysHQ/icestorm/issues/269
 #set_io ICE_MISO 67
 #set_io ICE_MOSI 68
 #set_io ICE_SCK  70

@@ -130,9 +130,9 @@ module top(
     //
 
     // Programming Pins
-    output ICE_CLK
-    //output ICE_CDONE, // can't bind to pin 65 removing https://github.com/YosysHQ/icestorm/issues/269
-    //output ICE_CREST, // can't bind to pin 66 removing https://github.com/YosysHQ/icestorm/issues/269
+    //output ICE_CLK, // for linux build it doesn't seem to properly assign tri-state to this output resulting in a pulldown of the usb clock so I've just disabled it for now
+    //output ICE_CDONE, // for linux build can't bind to pin 65 removing https://github.com/YosysHQ/icestorm/issues/269
+    //output ICE_CREST, // for linux build can't bind to pin 66 removing https://github.com/YosysHQ/icestorm/issues/269
     //output ICE_MISO,
     //output ICE_MOSI,
     //output ICE_SCK ,
@@ -1116,9 +1116,9 @@ assign FT_SIWU  = 1;
 //// Programmer Pins /////
 //////////////////////////
 // Tristate the programming pins - probably not needed but just to be sure (belt and braces)
-assign ICE_CLK   = 1'bz;
-//assign ICE_CDONE = 1'bz; // can't bind to pin 65 removing https://github.com/YosysHQ/icestorm/issues/269
-//assign ICE_CREST = 1'bz; // can't bind to pin 66 removing https://github.com/YosysHQ/icestorm/issues/269
+//assign ICE_CLK   = 1'bz; // for linux build it doesn't seem to properly assign tri-state to this output resulting in a pulldown of the usb clock so I've just disabled it for now
+//assign ICE_CDONE = 1'bz; // for linux build can't bind to pin 65 removing https://github.com/YosysHQ/icestorm/issues/269
+//assign ICE_CREST = 1'bz; // for linux build can't bind to pin 66 removing https://github.com/YosysHQ/icestorm/issues/269
 assign ICE_MISO  = 1'bz;
 assign ICE_MOSI  = 1'bz;
 assign ICE_SCK   = 1'bz;
