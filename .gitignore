@@ -3,6 +3,9 @@
 # lattice build files
 fpga_firmware/verilog/.vdbs
 fpga_firmware/verilog/HoloBlade_Implmnt
-
-# lattice timing report
-#*.twr
+fpga_firmware/verilog/build
+fpga_firmware/verilog/top.arearep
+fpga_firmware/verilog/top_lse.twr
+fpga_firmware/verilog/top_prim.v
+fpga_firmware/verilog/xxx_lse_cp_file_list
+fpga_firmware/verilog/xxx_lse_sign_file
