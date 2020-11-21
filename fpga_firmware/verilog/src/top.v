@@ -88,7 +88,7 @@ module top(
     input  FIFO_D29,
     input  FIFO_D28,
     input  FIFO_D27,
-    input  FIFO_CLK_PIN, // for linux build we need to explicitly instantiate SB_GB_IO if we want to use a global buffer hence the different name here so we can still use FIFO_CLK in the main project
+    input  FIFO_CLK,
     input  FIFO_D26,
     input  FIFO_D25,
     input  FIFO_D24,
@@ -130,7 +130,6 @@ module top(
     //
 
     // Programming Pins
-    input  ICE_CLK_PIN,
     //output ICE_CLK, // for linux build it doesn't seem to properly assign tri-state to this output resulting in a pulldown of the usb clock so I've just disabled it for now
     //output ICE_CDONE, // for linux build can't bind to pin 65 removing https://github.com/YosysHQ/icestorm/issues/269
     //output ICE_CREST, // for linux build can't bind to pin 66 removing https://github.com/YosysHQ/icestorm/issues/269
@@ -145,33 +144,6 @@ module top(
 
 );
 
-
-// for linux build we need to explicitly instantiate SB_GB_IO if we want to use a global buffer
-wire FIFO_CLK;
-SB_GB_IO #(
-  .PIN_TYPE(6'b000001),
-  .PULLUP(1'b 0),
-  .NEG_TRIGGER(1'b 0),
-  .IO_STANDARD("SB_LVCMOS"),
-) FIFO_CLK_IMP (
-  .PACKAGE_PIN(FIFO_CLK_PIN),
-  .GLOBAL_BUFFER_OUTPUT(FIFO_CLK)
-);
-
-// I'm assuming we were intending to use the ICE_CLK in the FPGA perhaps which is why it is wired up.
-// Unfortunately for the linux build we need to manually force the pin to tristate as yosys can't infer it based on 1'bz assignment below and without tristate we end up with a pulldown of the usb clock and the usb port fails to work.
-// Since we were probably just going to use this as an input to a global buffer anyways, I've defined it as such below.
-// It's currently unused though so will get optimized out during synthesis I think.
-wire ICE_CLK;
-SB_GB_IO #(
-  .PIN_TYPE(6'b101001),
-  .PULLUP(1'b 0),
-  .NEG_TRIGGER(1'b 0),
-  .IO_STANDARD("SB_LVCMOS"),
-) ICE_CLK_IMP (
-  .PACKAGE_PIN(ICE_CLK_PIN),
-  .GLOBAL_BUFFER_OUTPUT(ICE_CLK)
-);
 
 
 
@@ -237,7 +209,6 @@ assign DEBUG_7 = DEBUG_8;
 // LEDs - drive them with a counter
 // Counter 
 reg [31:0] led_counter = 32'b0;
-//always @ (posedge ICE_CLK) begin
 always @ (posedge fpga_clk) begin
     led_counter <= led_counter + 1;
 end
