@@ -126,7 +126,7 @@ module top(
     output DEBUG_5,
     output DEBUG_6,
     output DEBUG_8,
-    output DEBUG_9,
+    output DEBUG_9
     //
 
     // Programming Pins
