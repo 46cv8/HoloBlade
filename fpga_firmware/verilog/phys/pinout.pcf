@@ -94,10 +94,14 @@ set_io FT_WR 4 # Can be used as debug point when configured with jumper
 set_io FT_SIWU 7 # Can be used as debug point when configured with jumper
 set_io FR_RXF 8
 set_io FT_TXE 9
-set_io FIFO_BE3 10 # Changing to FT_RESET was FIFO_BE3 AND can be used as debug point when configured with jumper
-set_io FIFO_BE2 11 # Changing to FT_GPIO0 was FIFO_BE2 AND can be used as debug point when configured with jumper
-set_io FIFO_BE1 12 # Changing to FT_GPIO1 was FIFO_BE1 AND can be used as debug point when configured with jumper
-set_io FIFO_BE0 15 # Changed to DEBUG_N_7 was FIFO_BE0 AND can be used as debug point when configured with jumper
+# set_io FIFO_BE3 10 # Changing to FT_RESET was FIFO_BE3 AND can be used as debug point when configured with jumper
+set_io FT_RESET 10 # Changing to FT_RESET was FIFO_BE3 AND can be used as debug point when configured with jumper
+# set_io FIFO_BE2 11 # Changing to FT_GPIO0 was FIFO_BE2 AND can be used as debug point when configured with jumper
+set_io FT_GPIO0 11 # Changing to FT_GPIO0 was FIFO_BE2 AND can be used as debug point when configured with jumper
+#  set_io FIFO_BE1 12 # Changing to FT_GPIO1 was FIFO_BE1 AND can be used as debug point when configured with jumper
+set_io FT_GPIO1 12 # Changing to FT_GPIO1 was FIFO_BE1 AND can be used as debug point when configured with jumper
+# set_io FIFO_BE0 15 # Changed to DEBUG_N_7 was FIFO_BE0 AND can be used as debug point when configured with jumper
+set_io DEBUG_N_7 15 # Changed to DEBUG_N_7 was FIFO_BE0 AND can be used as debug point when configured with jumper
 set_io FIFO_D31 16
 set_io FIFO_D30 17
 set_io FIFO_D29 18
@@ -134,7 +138,7 @@ set_io FIFO_D1  61
 set_io FIFO_D0  62
 
 # Programming
-#set_io ICE_CLK # for linux build it doesn't seem to properly assign tri-state so we need to manually create another net so we can use the SB_IO or SB_GB_IO primitives commented out for now as its unused
+#set_io ICE_CLK 52 # for linux build it doesn't seem to properly assign tri-state so we need to manually create another net so we can use the SB_IO or SB_GB_IO primitives commented out for now as its unused
 #set_io ICE_CDONE 65 # for linux build can't bind to pin 65 removing https://github.com/YosysHQ/icestorm/issues/269
 #set_io ICE_CREST 66 # for linux build can't bind to pin 66 removing https://github.com/YosysHQ/icestorm/issues/269
 #set_io ICE_MISO 67

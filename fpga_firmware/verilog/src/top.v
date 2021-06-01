@@ -73,16 +73,16 @@ module top(
     output FT_SIWU, // (can be used as a debug output when jumper is set on V2.1b board)
     input  FR_RXF,
     input  FT_TXE,
-    input  FIFO_BE3, // same pin as output FT_RESET on V2.1b board
-    // output FT_RESET, // same as input FIFO_BE3 on V1.1 board (can be used as a debug output when jumper is set on V2.1b board)
-    input  FIFO_BE2, // same pin as output FT_GPIO0 on V2.1b board
+    // input  FIFO_BE3, // same pin as output FT_RESET on V2.1b board
+    output FT_RESET, // same as input FIFO_BE3 on V1.1 board (can be used as a debug output when jumper is set on V2.1b board)
+    // input  FIFO_BE2, // same pin as output FT_GPIO0 on V2.1b board
     // input FT_GPIO0, // same as input FIFO_BE2 on V1.1 board
-    // output FT_GPIO0, // same as input FIFO_BE2 on V1.1 board (can be used as a debug output when jumper is set on V2.1b board)
-    input  FIFO_BE1, // same pin as output FT_GPIO1 on V2.1b board
+    output FT_GPIO0, // same as input FIFO_BE2 on V1.1 board (can be used as a debug output when jumper is set on V2.1b board)
+    // input  FIFO_BE1, // same pin as output FT_GPIO1 on V2.1b board
     // input FT_GPIO1, // same as input FIFO_BE1 on V1.1 board
-    // output FT_GPIO1, // same as input FIFO_BE1 on V1.1 board (can be used as a debug output when jumper is set on V2.1b board)
-    input  FIFO_BE0, // same pin as output DEBUG_N_7 on V2.1b board
-    // output DEBUG_N_7, // same as input FIFO_BE0 on V1.1 board (now debug output)
+    output FT_GPIO1, // same as input FIFO_BE1 on V1.1 board (can be used as a debug output when jumper is set on V2.1b board)
+    // input  FIFO_BE0, // same pin as output DEBUG_N_7 on V2.1b board
+    output DEBUG_N_7, // same as input FIFO_BE0 on V1.1 board (now debug output)
     input  FIFO_D31,
     input  FIFO_D30,
     input  FIFO_D29,
@@ -378,6 +378,10 @@ assign DEBUG_4 = FR_RXF;//FR_RXF;//DATA0;//FR_RXF;//line_of_data_available;
 assign DEBUG_5 = dc32_fifo_write_enable;//VALID;//sc32_fifo_write_enable;//fifo_empty;//num_words_in_buffer[2];//DATA0;//SEN;
 assign DEBUG_6 = VALID;//DATA0;//FIFO_CLK;//SLM_CLK;//fpga_clk;//update_o;//reset_all;//usb_fifo_get_next_word;//FIFO_D22;//get_next_word_o;//FIFO_D22;
 assign DEBUG_7 = DATA0;//DATA0;//;//buffer_switch_done;//VALID;//DATA0;//FR_RXF;//DATA0;//VALID;//get_next_word;//UPDATE;//next_frame_rdy;//bluejay_data_out[22];//FIFO_D22;//get_next_word_o;//FIFO_D22;
+assign FT_RESET = FT_RD; // corresponds to RD_N (Read Enable input signal. The signal is active low.)
+assign FT_GPIO0 = FR_RXF; // corresponds to RXF_N (The signal indicates there is a minimum of 1 byte of data available to read. Only read from the FIFO when this signal is logic 0.)
+assign FT_GPIO1 = FT_OE; // corresponds to OE_N (Data Output Enable input signal. The signal is active low.)
+assign DEBUG_N_7 = DATA0; // corresponds to RXF_N
 
 // START
 // assign DEBUG_1 = FIFO_D0;//FR_RXF;//DATA0;//FR_RXF;//line_of_data_available;
